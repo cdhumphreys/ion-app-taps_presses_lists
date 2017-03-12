@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Event Cracker
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2 text-center padding-top>Enter the Code</h2>
+  <p text-center *ngIf="!didWin()">Tap two times & Press four times to win</p>
+  <p text-center *ngIf="didWin()">You Win!</p>
+  <ion-list>
+    <ion-item>
+      <p>Tapped: {{ taps }}</p>
+    </ion-item>
+    <ion-item>
+      <p>Pressed: {{ presses }}</p>
+    </ion-item>
+  </ion-list>
+
+  <app-game-buttons
+  (didReset)="onReset($event)"
+  (didIncrement)="onIncrement($event)"
+  ></app-game-buttons>
+
+</ion-content>
